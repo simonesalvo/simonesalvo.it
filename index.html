@@ -1,0 +1,349 @@
+<html>
+<head>
+<title> Simone Salvo </title>
+<script src="jquery-1.11.0.js"></script>
+<style>
+
+@font-face
+{
+	font-family:signatureFont;
+	src: url(ZingEasy.woff);
+}
+    
+.firma
+{
+	position:absolute;
+	width:100%;
+	right:1%;
+	top:75%;
+	height:25%;
+}
+
+#signatureParagraph
+{
+	font-family:signatureFont;
+	font-size:1000%;
+	color:#06C;
+}
+
+body
+{
+	position:absolute;
+	width:98%;
+	height: 98%;
+	top:0;
+	left:0;
+}
+
+#flagD
+{
+	position:absolute;
+	top:1%;
+	left:95%;
+	background-color:transparent;
+	width:5%;
+	height:15%;
+}
+
+.flag
+{
+	width:80%;
+	height:40%;
+}
+
+
+.menu
+{
+	position:absolute;
+	width:73%;
+	height:43%;
+	left:30%;
+	top:25%;	
+}
+
+.btn
+{
+	width:25%;
+	height:80%;
+}
+
+#aboutDiv
+{
+
+	position:absolute;
+	background-color:transparent;
+	width:100%;
+	height:100%;
+
+}
+
+#about
+{
+	position:absolute;
+	width:60%;
+	height:80%;
+	left:17%;
+	top:5%;
+}
+
+.pDiv
+{
+	position:absolute;
+	top:20%;
+	left:17%;
+	right:17%;
+	width:65%;
+	height:50%;
+	background-color:transparent;
+}
+
+
+.projectDescr
+{
+	position:inherit;
+	width:100%;
+	height:90%;
+}
+
+
+#socialBtn
+{
+	position:absolute;
+	left: 1%;
+	top: 1%;
+	width: 25%;
+	height:23%;
+	background-color:transparent;
+}
+.socialB
+{
+	width:15%;
+	height:30%;
+}
+
+#nextB
+{
+	position:absolute;
+	background-color:transparent;
+	left:0%;
+	top:13%;
+	width:100%;
+	height:15%;
+}
+#btnControl
+{
+	position:absolute;
+	left:47%;
+	width:5%;
+	height:65%;
+}
+
+.linguaAttuale
+{
+	position:absolute;
+	left:1%;
+	font-family:signatureFont;
+	font-size:150%;
+	bottom:2%;
+}
+
+#firmaI
+{
+	position:absolute;
+	width:50%;
+	right:1%;
+	height:100%;
+}
+
+</style>
+
+</head>
+
+<body bgcolor="#999999"	>
+<div class="firma"><img id="firmaI" src="descr/sign.png" /></div>
+<!--<div class="linguaAttuale"><p id="linguaAttualeP">EN</p></div>-->
+
+<div id="nextB" ><img id="btnControl" src="ctrlbtn/next2.png"/></div>
+<div id="socialBtn">
+<img class="socialB" id="ma" src="ico/ma.png"/>
+<img class="socialB" id="yt" src="ico/yt.png"/>
+<img class="socialB" id="gh" src="ico/gh.png"/>
+<img class="socialB" id="in" src="ico/in.png"/>
+</div>
+
+<div class="menu">
+	<img class="btn" id="cv" src="mainbtn/cv1en.png"/>
+	<!--<img class="btn" id="qq" src="mainbtn/qq1en.png" />-->
+	<img class="btn" id="pp" src="mainbtn/pp1en.png" />
+</div>
+
+ <div id="aboutDiv">
+	<img id="about" src="descr/qqen.png"/>
+</div> 
+
+<div class="flagContainer" id="flagD">
+	<img class="flag" id="en" src="flag/en.png"/>
+	<br><img class="flag" id="it" src="flag/it.png"/>
+</div>
+<!--<br><img class="flag" id="sp" src="flag/sp.png"/>
+<br><img class="flag" id="fin" src="flag/fin.png"/>
+<br><img class="flag" id="rs" src="flag/rs.png"/>
+<br><img class="flag" id="cin" src="flag/cin.png"/>
+<br><img class="flag" id="fr" src="flag/fr.png"/>
+</div>-->
+
+
+<div class="pDiv" id="projectDiv"><img class="projectDescr" id="projDescrI" src="descr/1en.png"/></div>
+<div class="pDiv" id="projectTransp"><img class="projectDescr" id="projectDown" src="descr/transp.png"/></div>
+
+<script>
+$(document).ready(function(e) {
+var nProject =8;
+var descrInit = (Math.floor((Math.random()*10))%nProject);
+var lan = "en";
+
+$("#aboutDiv").hide();
+$(".pDiv").hide();
+$("#nextB").hide();
+
+$(".btn").mouseover(
+function()
+{
+	$(this).attr("src","mainbtn/"+$(this).attr("id").toString()+"2"+lan+".png");
+	$(this).css('cursor','pointer');
+});
+
+$(".btn").mouseleave(
+function()
+{
+	$(this).attr("src","mainbtn/"+$(this).attr("id").toString()+"1"+lan+".png");
+	$(this).css('cursor','pointer');
+});
+
+$("#cv").click(function(e)
+	{
+		window.open("cv/SimoneSalvo"+"en"+"cv.pdf","","fullscreen=1");
+		e.stopPropagation();
+	});
+
+$("#qq").click(function(e)
+	{
+		$("#aboutDiv").fadeIn("slow");
+		$("#aboutDiv").show();
+		$(".menu").hide();
+		e.stopPropagation();
+	});
+
+
+$("#pp").click(function(e)
+	{
+		$("#projDescrI").attr("src","descr/"+descrInit+lan+".png");
+		$(".menu").hide();
+		$("#projectDiv").fadeIn("slow");
+		$("#nextB").fadeIn("slow");	
+		e.stopPropagation();
+	});
+		
+$(".pDiv").on({
+	"mouseover":function(e){
+		$("#projectTransp").show();
+		$(".pDiv").css('cursor', 'pointer');
+		e.stopPropagation();
+},
+		"mouseleave":function(e){
+		$("#projectTransp").hide();
+				e.stopPropagation();
+},
+"click":
+function(e)
+{
+	switch (descrInit)
+	{
+		case 0:window.open("https://github.com/simonesalvo/Projects/blob/master/car%20sharing/carSharing.rar?raw=true");break;
+		case 1:window.open("https://github.com/simonesalvo/Projects/blob/master/eye%20selector/EYEselector.rar?raw=true");break;
+		case 2:window.open("https://github.com/simonesalvo/Projects/blob/master/sim%20chess/simCHESS.rar?raw=true");break;
+		case 3:window.open("https://github.com/simonesalvo/Projects/blob/master/space%20impact/spaceImpact.rar?raw=true");break;
+		case 4:window.open("https://github.com/simonesalvo/Projects/blob/master/apriori/aPriori.rar?raw=true");break;	
+		case 5:window.open("https://github.com/simonesalvo/Projects/blob/master/haptic%20hand%20shake/Haptic-Hand-Shake-master.zip?raw=true");break;	
+		case 6:window.open("https://github.com/simonesalvo/Projects/blob/master/meana/meana.rar?raw=true");break;	
+		case 7:window.open("https://github.com/simonesalvo/Projects/blob/master/bsa%20project/bsa%20project.rar?raw=true");break;		
+	}
+	e.stopPropagation();
+}
+});
+
+			
+$("#btnControl").on({
+	"mouseover":function() 
+	{
+		$("#btnControl").attr("src","ctrlbtn/next.png");
+		$("#btnControl").css('cursor', 'pointer');
+		},
+		"click":function(e) 
+	{ 
+		descrInit= (descrInit+1)%nProject; 
+
+		$("#projDescrI").attr("src","descr/"+descrInit+lan+".png");
+		e.stopPropagation();
+	},
+	"mouseleave":function() 
+	{
+		$("#btnControl").attr("src","ctrlbtn/next2.png");
+	}
+});
+
+$(".flag").mouseover(function(){$(this).attr("src","flag/"+$(this).attr("id").toString()+"2"+".png")});
+$(".flag").mouseleave(function(){$(this).attr("src","flag/"+$(this).attr("id").toString()+".png")});
+$(".flag").mouseover(function(){$(this).css('cursor', 'pointer');})
+$(".flag").click(function(e)
+{
+	lan=""+$(this).attr("id").toString();
+
+	$("#pp").attr("src","mainbtn/pp1"+lan+".png");
+	$("#about").attr("src","descr/qq"+lan+".png");
+	$("#projDescrI").attr("src","descr/"+descrInit+lan+".png");
+
+	e.stopPropagation();
+	// <!--$("#linguaAttualeP").text($(this).attr("id").toString().toUpperCase());-->
+});
+
+
+$(".socialB").mouseover(function(){$(this).attr("src","ico/"+$(this).attr("id").toString()+"2"+".png")});
+$(".socialB").mouseleave(function(){$(this).attr("src","ico/"+$(this).attr("id").toString()+".png")});
+$(".socialB").mouseover(function(){$(this).css('cursor', 'pointer');})	
+			
+
+$(".socialB").click(function() 
+{
+	if ($(this).attr("id").toString() == "yt")
+		window.open("http://www.youtube.com/user/simonesalvo101");
+	else if ($(this).attr("id").toString() == "gh")
+		window.open("https://github.com/simonesalvo");
+	else if ($(this).attr("id").toString() == "in")
+		window.open("http://www.linkedin.com/in/simonesalvo");
+	else if ($(this).attr("id").toString() == "ma")
+		window.open("mailto:simone.salvo@outlook.com");
+});
+
+	
+$(document.body).click(function(e){
+if ($("#aboutDiv").is(":visible"))
+	{
+		$("#aboutDiv").fadeOut();
+		$(".menu").fadeIn();
+		$("#aboutDiv").hide();
+	}
+	else if ($("#projectDiv").is(":visible"))
+	{	
+		$(".pDiv").fadeOut();
+		$(".menu").fadeIn();
+		$(".pDiv").hide();
+		$("#nextB").hide();
+	}
+	});
+
+});
+
+</script>
+</body>
+</html>
