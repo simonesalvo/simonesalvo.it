@@ -1,0 +1,115 @@
+#map 
+{
+	position:absolute;
+	left: 20%;
+	width: 60%;
+	height: 60%;
+	top: 20%;
+}
+
+@font-face
+{
+	font-family:signatureFont;
+	src: url(ZingEasy.woff);
+}
+
+    
+.firma
+{
+	position:fixed;
+	width:100%;
+	right:1%;
+	top:75%;
+	height:25%;
+}
+
+body
+{
+	position:absolute;
+	width:98%;
+	height: 98%;
+	top:0;
+	left:0;
+}
+
+
+
+.pDiv
+{
+	position:absolute;
+	top:20%;
+	left:17%;
+	right:17%;
+	width:65%;
+	height:50%;
+	background-color:transparent;
+}
+
+
+.projectDescr
+{
+	position:inherit;
+	width:100%;
+	height:90%;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    
+}
+
+
+ @font-face {
+    font-family: myFirstFont;
+    src: url(Amatic-Bold.ttf);
+    font-size:80%;
+    font-weight: bold;
+}
+
+#quoteDiv
+{
+
+	    font-family: myFirstFont;
+	        font-size:xx-large;
+}
+
+#socialBtn
+{
+
+}
+.socialB
+{
+}
+
+#nextB
+{
+	position:absolute;
+	background-color:transparent;
+	left:0%;
+	top:13%;
+	width:100%;
+	height:15%;
+}
+  .background{
+	
+	overflow:hidden;
+}
+  
+#btnControl
+{
+	position:absolute;
+	left:47%;
+	width:5%;
+	height:65%;
+}
+
+
+#firmaI
+{
+	position:absolute;
+	width:50%;
+	right:1%;
+	height:100%;
+}
